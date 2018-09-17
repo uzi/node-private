@@ -118,7 +118,7 @@ var login = function login(apiOptions, username, pass, otp, orderedHeaders, clie
       }
 
       var details = parseDetails(res);
-      if (details === 'TWO_FA_REQUIRED'){
+      if (details === 'TWO_FA_REQUIRED') {
         resolve(details);
       }
 
@@ -321,7 +321,10 @@ var convertCookiesToAuthToken = function convertCookiesToAuthToken(apiOptions, c
         authorize: 'yes'
       };
 
-      var modhashedHeaders = _extends({}, headers, { 'x-modhash': modhash });
+      var modhashedHeaders = headers;
+      if (modhash) {
+        modhashedHeaders = _extends({}, modhashedHeaders, { 'x-modhash': modhash });
+      }
 
       __WEBPACK_IMPORTED_MODULE_0_superagent___default.a.post(endpoint).set(modhashedHeaders).type('form').send(postParams).redirects(0).end(function (err, res) {
         if (res.status !== 302) {
