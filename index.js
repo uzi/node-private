@@ -91,7 +91,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 
-var SCOPES = 'history,identity,mysubreddits,read,subscribe,vote,submit,' + 'save,edit,account,creddits,flair,livemanage,modconfig,' + 'modcontributors,modflair,modlog,modmail,modothers,modposts,modself,' + 'modwiki,privatemessages,report,wikiedit,wikiread';
+var SCOPES = '*';
 
 var login = function login(apiOptions, username, pass, otp, orderedHeaders, clientUserAgent) {
   return new Promise(function (resolve, reject) {
